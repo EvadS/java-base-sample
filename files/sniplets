@@ -1,0 +1,7 @@
+
+where is my file
+Path path = Paths.get(filePath);
+File file = new File(path.toString());
+String absolutePath = file.getAbsolutePath();
+
+

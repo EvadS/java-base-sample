@@ -12,7 +12,15 @@ import java.security.cert.CertificateException;
 
 public class KeyToolDemo {
 
-    private static final  String CERT_PATH = "/home/softkit/Documents/keystore";
+    //BASE
+  //  private static final  String CERT_PATH = "/home/softkit/Documents/keystore";
+  //  public static final String KEYSTORE_JKS = "/keystore.jks";
+  // public static final String PWD = "123456";
+
+      private static final  String CERT_PATH = "/home/softkit/Documents/certification-manager/trustore/fdf42355-e86f-4c5d-8b5b-facae0ff3cd0";
+     public static final String KEYSTORE_JKS = "/latest";
+    public static final String PWD = "mypassword";
+
     public static void main(String[] args) throws KeyStoreException {
         KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
 
@@ -24,10 +32,10 @@ public class KeyToolDemo {
 
     public static KeyStore getKeyStore() {
         // Согласно https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#KeyStore
-        try(FileInputStream fis = new FileInputStream(CERT_PATH+ "/keystore.jks")){
-            System.out.println("path: "+ CERT_PATH+ "/keystore.jks");
+        try(FileInputStream fis = new FileInputStream(CERT_PATH+ KEYSTORE_JKS)){
+            System.out.println("path: "+ CERT_PATH+ KEYSTORE_JKS);
             KeyStore keyStore = KeyStore.getInstance("pkcs12");
-            keyStore.load(fis, "123456".toCharArray());
+            keyStore.load(fis, PWD.toCharArray());
             return keyStore;
         } catch (IOException ioe) {
             throw new IllegalStateException(ioe);
@@ -41,7 +49,7 @@ public class KeyToolDemo {
         KeyManagerFactory keyManagerFactory = null;
         try {
             keyManagerFactory = KeyManagerFactory.getInstance(keyManagerAlgo);
-            keyManagerFactory.init(keyStore, "123456".toCharArray());
+            keyManagerFactory.init(keyStore, PWD.toCharArray());
             return keyManagerFactory.getKeyManagers();
         } catch (NoSuchAlgorithmException e) {
             throw new IllegalStateException(e);

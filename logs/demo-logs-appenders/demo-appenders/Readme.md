@@ -22,6 +22,20 @@ in this case
 ![current](assets/startutup.jpg)
 
 
+
+запусе в консоли
+```
+    java -jar log-demo.jar
+```
+ERROR StatusLogger No log4j2 configuration file found. Using default configuration: logging only errors to the console.
+
+фиксим указав расположение файла для логгера 
+```bash
+  java -jar -Dlog4j.configurationFile=/home/softkit/Documents/projects/Learning/java-base-sample/logs/demo-logs-appenders/demo-appenders/resources/log4j2-local.xml log-demo.jar 
+```
+
+
+
 ## Расположение по умолчанию 
 src/main/resources‘ folder -> log4j2.xml
 

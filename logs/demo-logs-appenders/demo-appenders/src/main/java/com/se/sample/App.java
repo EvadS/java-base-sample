@@ -21,7 +21,7 @@ public class App {
         userLogger.info(user.showMeMessage());
         userLogger.info(user.giveMeASign());
 
-        rootLogger.info("Root Logger: "  + user.showMeMessage());
+        rootLogger.info("Root Logger: " + user.showMeMessage());
 
         //debug
         if (rootLogger.isDebugEnabled()) {
@@ -31,12 +31,10 @@ public class App {
 
         try {
             User userNull = new User();
-            userNull.getName().toString();
         } catch (NullPointerException ex) {
             userLogger.error("error message: " + ex.getMessage());
             userLogger.fatal("fatal error message: " + ex.getMessage());
         }
-
 
 
     }

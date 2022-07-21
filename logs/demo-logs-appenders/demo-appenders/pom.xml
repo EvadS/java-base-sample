@@ -40,5 +40,8 @@
     </dependency>
   </dependencies>
 
+  <build>
+    <finalName>log-demo</finalName>
+  </build>
 
 </project>

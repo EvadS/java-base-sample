@@ -10,9 +10,14 @@ import org.apache.logging.log4j.Logger;
 public class App {
     static final Logger rootLogger = LogManager.getRootLogger();
     static final Logger userLogger = LogManager.getLogger(User.class);
+    static final Logger coreappenderLogger = LogManager.getLogger("coreappender");
+
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
+        System.setProperty("appname", "TESESSSSST");
+
+        coreappenderLogger.info("**********************************");
 
         User user = new User();
         user.setName("Anakin");

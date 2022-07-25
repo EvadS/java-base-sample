@@ -13,12 +13,13 @@
                      bufferSize="8192"
                      immediateFlush="true">
             <PatternLayout>
-                <Pattern>local| %d{ISO8601} %5p [%t] %c - %m%n</Pattern>
+                <Pattern>%d{ISO8601} %5p [%t] %c - %m%n</Pattern>
             </PatternLayout>
             <Policies>
                 <SizeBasedTriggeringPolicy size="250MB"/>
             </Policies>
         </RollingFile>
+
 
 
     </Appenders>
@@ -30,13 +31,14 @@
 
         <!-- Root Logger -->
         <Root level="all">
-            <AppenderRef ref="Console"/>
+            <AppenderRef ref="coreappender"/>
         </Root>
-
 
         <Logger name="coreappender" level="info" additivity="false">
             <AppenderRef ref="coreappender"/>
         </Logger>
+
+
     </Loggers>
 
 </Configuration>

@@ -2,10 +2,10 @@ package org.example;
 
 import java.sql.*;
 
-public class DerbyServer {
+public class DerbyEmbeded {
     public static void main(String[] args) {
-        //runed as Apache Derby in Client/Server Mode
-        String urlConnection = "jdbc:derby://localhost:1527/logger-db";
+        //runed as a  EmbeddedCP
+        String urlConnection = "jdbc:derby:baeldung";
         try (Connection con = DriverManager.getConnection(urlConnection)) {
             Statement statement = con.createStatement();
             String sql = "SELECT * FROM authors";

@@ -1,125 +1,114 @@
 
-
+## Install
 JAVA 17
-
-
-
-export DERBY_HOME=/home/softkit/software/derby
-export PATH="$DERBY_HOME/bin:$PATH"
-
+```
+    export DERBY_HOME=/home/softkit/software/derby
+    export PATH="$DERBY_HOME/bin:$PATH"
+```
 
 source .bashrc
-
 . ~/.bashrc
 
-
-
-Step 1. Derby terminal
+## Embedded db
+Connect to Apache Derby in Embedded Mode
 ```
+    jdbc:derby:[subsubprotocol:][databaseName][;attribute=value]
+```
+### Step 1. Derby terminal
+```bash
     ./bin/ij
 ```
 
-Step 2. Create Database
-```
+### Step 2. Create Database
+Db will be created when not exists 
+```bash
    connect 'jdbc:derby:logger-db;create=true';
 ```
+sample response
+```
+    ij version 10.16
+    ij>  connect 'jdbc:derby:logger-db;create=true';
+    WARNING 01J01: Database 'logger-db' not created, connection made to existing database instead.
+```
 
-connect to DataBase
+connect to DataBase with users name and pwd 
 ```
  connect 'jdbc:derby:logger-db' user 'user' password 'oracle';
 ```
-
-
-SQL demo
-```
+working with database in ij console 
+```sql
     CREATE SCHEMA schema_name AUTHORIZATION userName;
 ```
-
+```
 DROP SCHEMA schema_name RESTRICT
------------
+```
 
-
-### check connection
-inside libs
+### Utils 
+#### check connection
+location $DERBY_HOME/lib
 ```
     java -jar -Dij.protocol=jdbc:derby: -Dij.database=logger-db derbyrun.jar ij
 ```
-
-Example response
+response like sample 
 ```
-ij version 10.13
-CONNECTION0* - 	jdbc:derby:baeldung
-* = current connection
-```
-
-```
-    java -jar -Dij.protocol=jdbc:derby: -Dij.database=baeldung derbyrun.jar ij
+    ij version 10.16
+    CONNECTION0* -  jdbc:derby:logger-db
+    * = current connection
 ```
 
-
-### DBLook
+#### DBLook
 tool provides the DDL (Data Definition Language) of the database
 ```
- $DERBY_HOME/bin/dblook -d jdbc:derby:baeldung
+ $DERBY_HOME/bin/dblook -d jdbc:derby:logger-db
 ```
-variant 2
+Response 
 ```
- $DERBY_HOME/bin/logger-db -d jdbc:derby:baeldung
+-- Timestamp: 2022-07-26 10:17:54.033
+-- Source database is: logger-db
+-- Connection URL is: jdbc:derby:logger-db
+-- appendLogs: false
 ```
-
-
 ### Sysinfo
 displays information regarding our Java environment and the Derby version
 ```
     java -jar $DERBY_HOME/lib/derbyrun.jar sysinfo
 ```
 
-## Use Apache Derby in Embedded Mode
-```
-    jdbc:derby:[subsubprotocol:][databaseName][;attribute=value]
-```
-### sample
+### Jdbc sample
 String urlConnection = "jdbc:derby:baeldung";
 String urlConnection = "jdbc:derby:baeldung;create=true";
-
-
-## Use Apache Derby in Client/Server Mode
-in /lib folder
-
+---------------
+## Use Apache Derby in Server/Client Mode
+in $DERBY_HOME/lib folder
 #### start server 
-```
+```bash
     java -jar $DERBY_HOME/lib/derbyrun.jar server start
 ```
 
 #### change db mode 
+```bash
+    ./bin/setNetworkClientCP
 ```
-./bin/setNetworkClientCP
+#### run client 
+
+```bash
+    ./bin/ij
 ```
 
-#### create data base 
-```
+#### create database 
+```bash
  connect 'jdbc:derby://localhost:1527/logger-db;create=true';
 ```
-
-
-```properties
- connect 'jdbc:derby://localhost:1527/logger-db;create=true'; 
-```
-
-create database with user and pwd 
-```
+#### create database with user and pwd 
+```bash
     connect 'jdbc:derby://localhost:1527/logger-db;create=true'  user 'user' password 'oracle';
 ```
-
 #### connection string 
 ```java
 String urlConnection = "jdbc:derby://localhost:1527/logger-db"
 ```
-
-## UTILS
-
-### enable all permistion
+#### unix UTILS
+enable all permistion
 ```bash
     chmod -R 777 ./
 ```
-

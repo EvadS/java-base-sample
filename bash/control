@@ -1,4 +1,3 @@
- 
 #!/bin/sh
 ###############################
 #
@@ -166,21 +165,20 @@ function checkProcess {
 }
 
 function readCfgDBProperties {
-	file="$CFGDB_FILE"
+        file="$CFGDB_FILE"
 
-	while IFS='=' read -r key value
-	do
-		JAVA_CMD_OPTS="$JAVA_CMD_OPTS -D$key=$value"
-	done < "$file"
+        while IFS='=' read -r key value
+        do
+                JAVA_CMD_OPTS="$JAVA_CMD_OPTS -D$key=$value"
+        done < "$file"
 
         JAVA_CMD_OPTS="$JAVA_CMD_OPTS -Dcfg-db.app=$APP_NAME"
 
 }
 
 function start {
-  echo "start 1"
  checkProcess
-  echo "checked"
+
  if [[ $STATUS == "RUNNING" ]]; then
    exit 1
  fi
@@ -247,5 +245,4 @@ status) validate $1
 *) logger "usage: ./control [start|stop|status]  <appname>"
       ;;
 esac
-
 

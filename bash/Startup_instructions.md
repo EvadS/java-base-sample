@@ -31,9 +31,11 @@ sudo chmod +x  testFunction2.sh
 
 
 
+ls -la /bin/sh
 
+ Список доступных оболочек можно проверить, введя следующую команду:
 
-
+cat /etc/shells
 
 
 

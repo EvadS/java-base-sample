@@ -20,7 +20,7 @@ public class TimeServlet extends HttpServlet {
     static Logger logger = LogManager.getLogger(TimeServlet.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        for(int i =1000; i>0; i--) {
+        for(int i =100; i>0; i--) {
             logger.info("Info {}", i);
             logger.debug("Debug *********");
         }

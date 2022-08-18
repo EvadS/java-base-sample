@@ -8,7 +8,11 @@ public class TestClass {
     static Logger logger = LogManager.getLogger(TestClass.class);
 
     public static void main(String[] args) {
-        logger.info("Info");
-        logger.debug("Debug *********");
+        for(int i =1000; i>0; i--) {
+            logger.info("Info {}", i);
+            logger.debug("Debug *********");
+        }
+
+        logger.info("FINISHED ====================");
     }
 }

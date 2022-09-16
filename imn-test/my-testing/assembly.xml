@@ -1,0 +1,38 @@
+<assembly>
+    <id>dist</id>
+
+    <formats>
+	<format>tar.gz</format>
+    </formats>
+
+  <fileSets>
+  <fileSet>
+	<directory>target/${project.artifactId}-${project.version}/</directory>
+	<outputDirectory>.</outputDirectory>
+	<includes>
+	    <include>**/**</include>
+	</includes>
+  </fileSet>
+  <fileSet>
+	<directory>target</directory>
+	<outputDirectory>lib</outputDirectory>
+	<includes>
+	    <include>*.jar</include>
+	</includes>
+  </fileSet>
+  <fileSet>
+	<directory>${project.basedir}/resources</directory>
+	<outputDirectory>resources</outputDirectory>
+  </fileSet>
+  <fileSet>
+	<directory>${project.basedir}/conf</directory>
+	<outputDirectory>conf</outputDirectory>
+  </fileSet>
+  <fileSet>
+	<directory>${project.basedir}/bin</directory>
+	<outputDirectory>bin</outputDirectory>
+	<fileMode>0744</fileMode>
+  </fileSet>
+  </fileSets>
+</assembly>
+

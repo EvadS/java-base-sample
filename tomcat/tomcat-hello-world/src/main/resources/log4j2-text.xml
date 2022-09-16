@@ -2,12 +2,14 @@
 <Configuration status="debug" monitorInterval="60">
 
     <Properties>
-        <Property name="appname">skiea-DDEEMMOO</Property>
+        <Property name="appname">${sys:appname}</Property>
         <Property name="LOG_PATTERN">%d %-5p %m%n</Property>
     </Properties>
 
     <Appenders>
-
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="++ se: ++ LOGJ2 %d [%-6p] %c{1} – %m%n"/>
+        </Console>
         <!-- coreapp File Appender -->
         <RollingFile name="FileAppender" fileName="/imn_data/file/logs/${appname}/${appname}.log"
                      filePattern="/imn_data/file/logs/${appname}/${appname}.log.%i">
@@ -67,6 +69,9 @@
         <!--        <Logger name="monitor" level="debug" additivity="false">-->
         <!--            <AppenderRef ref="monitorapp"/>-->
         <!--        </Logger>-->
+        <Logger name="*" level="trace">
+            <AppenderRef ref="Console"/>
+        </Logger>
 
     </Loggers>
 

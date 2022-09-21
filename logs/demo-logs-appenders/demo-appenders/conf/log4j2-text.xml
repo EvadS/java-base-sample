@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug" monitorInterval="60">
+
+    <Properties>
+        <Property name="appname">my-datasync</Property>
+    </Properties>
+    <Appenders>
+        <RollingFile name="coreapp" fileName="/imn_data/logs/datasync/dataSyncAppLog.log"
+                     filePattern="/imn_data/logs/datasync/dataSyncAppLog.log.gz%i">
+            <PatternLayout pattern="%d %-5p %m%n"/>
+            <!-- <PatternLayout pattern="%m%n" /> -->
+            <Policies><!-- MB -->
+                <SizeBasedTriggeringPolicy size="250 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+
+
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Default"/>
+        </Root>
+
+
+        <Logger name="${appname}" level="debug" additivity="false">
+            <AppenderRef ref="coreapp"/>
+        </Logger>
+
+    </Loggers>
+</Configuration>

@@ -7,7 +7,7 @@ public class TestClass {
 
     /**
      * VM param on startup
-     * -Dlog4j.configurationFile=/home/softkit/Documents/projects/Learning/java-base-sample/logs/demo-logs-appenders/demo-appenders/src/main/resources/log4j.properties
+     * -Dlog4j.configurationFile=/home/softkit/Documents/projects/Learning/java-base-sample/logs/demo-logs-appenders/demo-appenders/src/main/resources/log4j2.properties
      */
     static Logger logger = LogManager.getLogger(TestClass.class);
 

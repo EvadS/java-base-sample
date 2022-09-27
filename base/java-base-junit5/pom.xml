@@ -4,14 +4,15 @@
     <groupId>com.se.sample</groupId>
     <artifactId>java-base-junit5</artifactId>
     <packaging>jar</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <name>java-base-junit5</name>
 
     <properties>
         <java.version>11</java.version>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <log4j.version>2.18.0</log4j.version>
+        <junit-version>5.7.2</junit-version>
     </properties>
 
     <dependencies>
@@ -30,10 +31,9 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.7.2</version>
+            <version>${junit-version}</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>

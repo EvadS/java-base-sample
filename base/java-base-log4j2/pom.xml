@@ -4,13 +4,13 @@
     <groupId>com.se.sample</groupId>
     <artifactId>java-base-log4j2</artifactId>
     <packaging>jar</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <name>executable-java-base</name>
+    <version>1.0</version>
+    <name>java-base-log4j2</name>
 
     <properties>
         <java.version>11</java.version>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <log4j.version>2.18.0</log4j.version>
     </properties>
 

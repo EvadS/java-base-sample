@@ -34,4 +34,13 @@ in .bashrc
 
 alias psjava="ps -ef|grep java"
 
+#### output
+
+Run on background
+###
+    nohup ...
+###
+
+
+
 

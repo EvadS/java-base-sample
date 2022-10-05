@@ -7,7 +7,9 @@ JAVA 17
 ```
 
 source .bashrc
+```
 . ~/.bashrc
+```
 
 ## Embedded db
 Connect to Apache Derby in Embedded Mode
@@ -15,6 +17,7 @@ Connect to Apache Derby in Embedded Mode
     jdbc:derby:[subsubprotocol:][databaseName][;attribute=value]
 ```
 ### Step 1. Derby terminal
+
 ```bash
     ./bin/ij
 ```
@@ -105,10 +108,10 @@ in $DERBY_HOME/lib folder
 ```
 #### connection string 
 ```java
-String urlConnection = "jdbc:derby://localhost:1527/logger-db"
+    String urlConnection = "jdbc:derby://localhost:1527/logger-db"
 ```
 #### unix UTILS
-enable all permistion
+enable all permission
 ```bash
     chmod -R 777 ./
 ```

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+    <Properties>
+        <Property name="appname">demo-logging</Property>
+    </Properties>
+    <!--Аппендеры -->
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="console appender| %d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <RollingFile name="coreappender"
+                     filePattern="logs/${appname}.log"
+                     append="true"
+                     bufferedIO="false"
+                     bufferSize="125"
+                     immediateFlush="true">
+            <PatternLayout>
+                <Pattern>%d{ISO8601} %5p [%t] %c - %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="250"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <!-- Секция логгеров -->
+    <Loggers>
+        <!-- Логгер нашего класса -->
+        <Logger name="com.se.sample.User" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <!-- Корневой логгер -->
+        <Root level="all">
+            <AppenderRef ref="Console"/>
+        </Root>
+
+        <!-- Логгер нашего класса -->
+        <Logger name="coreappender" level="info" additivity="false">
+            <AppenderRef ref="coreappender"/>
+        </Logger>
+
+
+    </Loggers>
+</Configuration>

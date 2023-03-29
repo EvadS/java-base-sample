@@ -1,8 +1,8 @@
 package com.se.sample;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
  * Unit test for simple App.
@@ -15,6 +15,10 @@ public class AppTest
     @Test
     public void shouldAnswerWithTrue()
     {
-        assertTrue( true );
+        Integer aa = new Integer(100);
+        Integer aa2 = aa++;
+        // Integer a = new Integer(a.intValue()+5);
+
+
     }
 }

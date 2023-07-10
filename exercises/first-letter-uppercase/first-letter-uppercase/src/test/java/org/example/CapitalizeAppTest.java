@@ -8,7 +8,7 @@ import org.junit.Test;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
+public class CapitalizeAppTest
 {
     /**
      * Rigorous Test :-)
@@ -25,7 +25,7 @@ public class AppTest
         String inputRow = "Now is the time to act!";
         String outputRow = "NoW is thE tiMe to acT!";
         int charPosition = 2;
-        String converted = App.convertLetterToUpperCase(inputRow, charPosition);
+        String converted = CapitalizeApp.convertLetterToUpperCase(inputRow, charPosition);
 
         Assert.assertEquals(outputRow, converted);
     }
@@ -35,7 +35,7 @@ public class AppTest
         String inputRow = "Now is th2 time to act!";
         String outputRow = "NoW is th2 tiMe to acT!";
         int charPosition = 2;
-        String converted = App.convertLetterToUpperCase(inputRow, charPosition);
+        String converted = CapitalizeApp.convertLetterToUpperCase(inputRow, charPosition);
 
         Assert.assertEquals(outputRow, converted);
     }
@@ -46,7 +46,7 @@ public class AppTest
         String inputRow = "Now is th ti to act!";
         String outputRow = "NoW is th ti to acT!";
         int charPosition = 2;
-        String converted = App.convertLetterToUpperCase(inputRow, charPosition);
+        String converted = CapitalizeApp.convertLetterToUpperCase(inputRow, charPosition);
 
         Assert.assertEquals(outputRow, converted);
     }
@@ -56,7 +56,7 @@ public class AppTest
         String inputRow = "1111 222 333 444";
         String outputRow = "1111 222 333 444";
         int charPosition = 2;
-        String converted = App.convertLetterToUpperCase(inputRow, charPosition);
+        String converted = CapitalizeApp.convertLetterToUpperCase(inputRow, charPosition);
 
         Assert.assertEquals(outputRow, converted);
     }
@@ -66,7 +66,7 @@ public class AppTest
         String inputRow = "";
         String outputRow = "";
         int charPosition = 2;
-        String converted = App.convertLetterToUpperCase(inputRow, charPosition);
+        String converted = CapitalizeApp.convertLetterToUpperCase(inputRow, charPosition);
 
         Assert.assertEquals(outputRow, converted);
     }

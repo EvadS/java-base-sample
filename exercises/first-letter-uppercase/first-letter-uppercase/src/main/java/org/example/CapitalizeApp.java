@@ -3,7 +3,7 @@ package org.example;
 /**
  * Hello world!
  */
-public class App {
+public class CapitalizeApp {
     public static void main(String[] args) {
         printCapitalized();
     }

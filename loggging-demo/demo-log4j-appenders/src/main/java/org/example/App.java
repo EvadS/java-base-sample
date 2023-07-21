@@ -11,10 +11,10 @@ public class App {
     public static void main(String[] args) {
 
         App obj = new App();
-        obj.runMe("mkyong");
+        obj.runMe("something text");
     }
 
-    private void runMe(String parameter) {
+    void runMe(String parameter) {
 
         if (logger.isDebugEnabled()) {
             logger.debug("This is debug : " + parameter);

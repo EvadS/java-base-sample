@@ -1,0 +1,104 @@
+<mxfile compressed="false" pages="1">
+    <diagram id="06093cc3-0e14-c465-d977-653eaef6b40a">
+        <mxGraphModel arrows="1" connect="1" dx="1050" dy="542" fold="1" grid="1" gridSize="10" guides="1" math="0" page="1" pageHeight="1169" pageScale="1" pageWidth="827" shadow="0" tooltips="1">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="SdjdIIB76aHoQYSlU93i-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=open sans;align=center;verticalAlign=top;" value="value=&quot;&lt;font style=&quot;font-size: 14px;&quot;&gt;Здійснення&lt;br&gt;товариством одного з таких&amp;nbsp;&lt;a style=&quot;&quot; href=&quot;https://legislation-dev.ligaunited.net/document/T182275?an=103&amp;amp;hide=true&amp;amp;snippet_id=snippet_318006&quot;&gt;заходів&lt;/a&gt;:&lt;br&gt;&lt;br&gt;&lt;/font&gt;&quot;" vertex="1">
+                    <mxGeometry as="geometry" height="160" width="510" x="158.75" y="550"/>
+                </mxCell>
+                <mxCell edge="1" id="hN33aWnmaK-wJ7UbjS5C-71" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="hN33aWnmaK-wJ7UbjS5C-69">
+                    <mxGeometry as="geometry" relative="1">
+                        <mxPoint as="sourcePoint" x="413" y="709.5"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5a42a100a00cd4ec-1" parent="1" style="shape=image;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=0;image=data:image/png,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;fontFamily=open sans;" value="value=&quot;&quot;" vertex="1">
+                    <mxGeometry as="geometry" height="65" width="105" x="682" y="1080"/>
+                </mxCell>
+                <mxCell edge="1" id="hN33aWnmaK-wJ7UbjS5C-46" parent="1" source="4b8f9aacf3b804f-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+                    <mxGeometry as="geometry" relative="1">
+                        <mxPoint as="targetPoint" x="414" y="210"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4b8f9aacf3b804f-42" parent="1" style="shape=note;whiteSpace=wrap;size=16;html=1;fontFamily=open sans;strokeColor=#000000;align=center;fillColor=#d5e8d4;" value="value=&quot;Рішення&lt;br&gt;про зменшення статутного капіталу товариства&quot;" vertex="1">
+                    <mxGeometry as="geometry" height="110" width="90" x="369" y="10"/>
+                </mxCell>
+                <mxCell id="4b8f9aacf3b804f-43" parent="4b8f9aacf3b804f-42" style="html=1;shape=singleArrow;arrowWidth=0.4;arrowSize=0.4;fontFamily=open sans;" value="" vertex="1">
+                    <mxGeometry as="geometry" height="14" relative="1" width="14">
+                        <mxPoint as="offset" x="2" y="2"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4b8f9aacf3b804f-44" parent="4b8f9aacf3b804f-42" style="html=1;whiteSpace=wrap;shape=parallelMarker;fontFamily=open sans;" value="" vertex="1">
+                    <mxGeometry as="geometry" height="14" relative="1" width="14" x="0.5" y="1">
+                        <mxPoint as="offset" x="-7" y="-14"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4a441627414f2795-23" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=1;fontFamily=open sans;" value="value=&quot;Так&quot;" vertex="1">
+                    <mxGeometry as="geometry" height="20" width="40" x="383" y="518"/>
+                </mxCell>
+                <mxCell id="Zb1ewqgP9WhkXeMpyaTA-9" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=1;fontFamily=open sans;labelPosition=center;verticalLabelPosition=middle;" value="value=&quot;Ні&quot;" vertex="1">
+                    <mxGeometry as="geometry" height="20" width="40" x="532" y="444"/>
+                </mxCell>
+                <mxCell id="SdjdIIB76aHoQYSlU93i-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontFamily=open sans;fillColor=#f8cecc;strokeColor=#b85450;" value="value=&quot;Вважається, що &lt;br&gt;кредитор не вимагає від товариства вчинення додаткових дій щодо виконання зобов'язань &lt;br&gt;перед ним&quot;" vertex="1">
+                    <mxGeometry as="geometry" height="95" width="190" x="580" y="412.5"/>
+                </mxCell>
+                <mxCell edge="1" id="hN33aWnmaK-wJ7UbjS5C-37" parent="1" source="SdjdIIB76aHoQYSlU93i-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="SdjdIIB76aHoQYSlU93i-5">
+                    <mxGeometry as="geometry" relative="1"/>
+                </mxCell>
+                <mxCell edge="1" id="hN33aWnmaK-wJ7UbjS5C-40" parent="1" source="SdjdIIB76aHoQYSlU93i-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="SdjdIIB76aHoQYSlU93i-4">
+                    <mxGeometry as="geometry" relative="1"/>
+                </mxCell>
+                <mxCell id="SdjdIIB76aHoQYSlU93i-6" parent="1" style="rhombus;whiteSpace=wrap;html=1;fontFamily=open sans;" value="value=&quot;Чи звернувся&lt;br&gt;кредитор з письмовою вимогою&lt;br&gt;у встановлений строк?&quot;" vertex="1">
+                    <mxGeometry as="geometry" height="100" width="223" x="302.25" y="410"/>
+                </mxCell>
+                <mxCell id="SdjdIIB76aHoQYSlU93i-14" parent="1" style="shape=mxgraph.bpmn.shape;html=1;verticalLabelPosition=middle;labelBackgroundColor=#ffffff;verticalAlign=middle;perimeter=ellipsePerimeter;outline=standard;symbol=timer;rounded=0;strokeColor=#000000;strokeWidth=1;fontFamily=open sans;labelPosition=right;align=left;" value="value=&quot;10 днів&quot;" vertex="1">
+                    <mxGeometry as="geometry" height="40" width="40" x="393.88" y="140"/>
+                </mxCell>
+                <mxCell edge="1" id="hN33aWnmaK-wJ7UbjS5C-34" parent="1" source="hN33aWnmaK-wJ7UbjS5C-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="SdjdIIB76aHoQYSlU93i-6">
+                    <mxGeometry as="geometry" relative="1"/>
+                </mxCell>
+                <mxCell id="hN33aWnmaK-wJ7UbjS5C-14" parent="1" style="html=1;whiteSpace=wrap;rounded=1;fontFamily=open sans;" value="value=&quot;&lt;a href=&quot;https://legislation-dev.ligaunited.net/document/T182275?an=103&amp;amp;hide=true&amp;amp;snippet_id=snippet_318006&quot;&gt;Звернення &lt;/a&gt;кредитора &lt;br&gt;з письмовою вимогою до товариства&quot;" vertex="1">
+                    <mxGeometry as="geometry" height="60" width="166" x="331" y="310"/>
+                </mxCell>
+                <mxCell id="hN33aWnmaK-wJ7UbjS5C-15" parent="hN33aWnmaK-wJ7UbjS5C-14" style="shape=mxgraph.bpmn.timer_start;perimeter=ellipsePerimeter;html=1;verticalLabelPosition=middle;labelBackgroundColor=#ffffff;verticalAlign=middle;fontFamily=open sans;labelPosition=right;align=left;" value="30 днів&amp;nbsp;&lt;br&gt;після отримання&lt;br&gt;повідомлення" vertex="1">
+                    <mxGeometry as="geometry" height="30" relative="1" width="30" x="1" y="1">
+                        <mxPoint as="offset" x="-15" y="-15"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell edge="1" id="hN33aWnmaK-wJ7UbjS5C-16" parent="hN33aWnmaK-wJ7UbjS5C-14" source="hN33aWnmaK-wJ7UbjS5C-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=1;entryPerimeter=0;jettySize=auto;orthogonalLoop=1;fontFamily=open sans;" target="hN33aWnmaK-wJ7UbjS5C-15">
+                    <mxGeometry as="geometry" relative="1"/>
+                </mxCell>
+                <mxCell edge="1" id="hN33aWnmaK-wJ7UbjS5C-17" parent="hN33aWnmaK-wJ7UbjS5C-14" source="hN33aWnmaK-wJ7UbjS5C-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=1;entryPerimeter=0;jettySize=auto;orthogonalLoop=1;fontFamily=open sans;" target="hN33aWnmaK-wJ7UbjS5C-15">
+                    <mxGeometry as="geometry" relative="1"/>
+                </mxCell>
+                <mxCell id="hN33aWnmaK-wJ7UbjS5C-42" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=open sans;" value="value=&quot;Забезпечення &lt;br&gt;виконання зобов'язань шляхом укладення договору забезпечення&quot;" vertex="1">
+                    <mxGeometry as="geometry" height="85" width="150" x="175" y="594.75"/>
+                </mxCell>
+                <mxCell id="hN33aWnmaK-wJ7UbjS5C-43" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=open sans;" value="value=&quot;Дострокове припинення&lt;br&gt;або виконання зобов'язань&lt;br&gt;перед кредитором&quot;" vertex="1">
+                    <mxGeometry as="geometry" height="85" width="150" x="338.75" y="594.75"/>
+                </mxCell>
+                <mxCell id="hN33aWnmaK-wJ7UbjS5C-44" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=open sans;" value="value=&quot;Укладення&amp;nbsp;&lt;br&gt;іншого договору&lt;br&gt;з кредитором&quot;" vertex="1">
+                    <mxGeometry as="geometry" height="85" width="150" x="503.5" y="594.75"/>
+                </mxCell>
+                <mxCell edge="1" id="hN33aWnmaK-wJ7UbjS5C-51" parent="1" source="hN33aWnmaK-wJ7UbjS5C-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="hN33aWnmaK-wJ7UbjS5C-14">
+                    <mxGeometry as="geometry" relative="1"/>
+                </mxCell>
+                <mxCell id="hN33aWnmaK-wJ7UbjS5C-47" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=open sans;" value="value=&quot;Повідомлення&lt;sup&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;1&lt;/font&gt;&lt;/sup&gt;&amp;nbsp;кожного кредитора про таке рішення&quot;" vertex="1">
+                    <mxGeometry as="geometry" height="60" width="166" x="331" y="210"/>
+                </mxCell>
+                <mxCell id="hN33aWnmaK-wJ7UbjS5C-52" parent="1" style="shape=mxgraph.bpmn.shape;html=1;verticalLabelPosition=middle;labelBackgroundColor=#ffffff;verticalAlign=middle;perimeter=ellipsePerimeter;outline=standard;symbol=timer;rounded=0;strokeColor=#000000;strokeWidth=1;fontFamily=open sans;labelPosition=right;align=left;" value="value=&quot;30 днів&quot;" vertex="1">
+                    <mxGeometry as="geometry" height="40" width="40" x="648.75" y="680"/>
+                </mxCell>
+                <mxCell edge="1" id="u3zYA4PjYyLIuBrB5Hqu-3" parent="1" source="hN33aWnmaK-wJ7UbjS5C-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="u3zYA4PjYyLIuBrB5Hqu-2">
+                    <mxGeometry as="geometry" relative="1"/>
+                </mxCell>
+                <mxCell id="hN33aWnmaK-wJ7UbjS5C-69" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=open sans;" value="value=&quot;Дострокове припинення або виконання зобов'язань у судовому порядку у разі невиконанням товариством вимоги&quot;" vertex="1">
+                    <mxGeometry as="geometry" height="70" width="200.5" x="312.5" y="766"/>
+                </mxCell>
+                <mxCell id="u3zYA4PjYyLIuBrB5Hqu-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontFamily=open sans;fillColor=#d5e8d4;strokeColor=#82b366;" value="value=&quot;Зменшення статутного капіталу&quot;" vertex="1">
+                    <mxGeometry as="geometry" height="70" width="141" x="342.25" y="876"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

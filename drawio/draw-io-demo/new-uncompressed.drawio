@@ -1,0 +1,24 @@
+<mxfile compressed="false" pages="1" type="device">
+    <diagram id="ed452ad4-42c5-4fd3-b77d-efd5b5a0c1ab" name="My first new page">
+        <mxGraphModel arrows="1" connect="1" fold="1" grid="1" gridSize="10" guides="1" math="0" page="1" pageScale="1" shadow="0" tooltips="1">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="deb53462-0982-4488-ba3b-bf199a67bd49" parent="0" value="My new layer"/>
+                <object id="296d6adc-38c9-4489-a80b-13e0cb3e93af" label="My source node" tags="aws">
+                    <mxCell parent="deb53462-0982-4488-ba3b-bf199a67bd49" vertex="1">
+                        <mxGeometry as="geometry" height="30.0" width="70.0" x="100.0"/>
+                    </mxCell>
+                </object>
+                <object id="fdf1fe61-9e65-4626-a008-306cf842547b" label="My target node" tags="aws azure">
+                    <mxCell parent="deb53462-0982-4488-ba3b-bf199a67bd49" vertex="1">
+                        <mxGeometry as="geometry" height="30.0" width="100.0" x="300.0" y="150.0"/>
+                    </mxCell>
+                </object>
+                <mxCell edge="1" id="4437345c-e4b3-419a-bd21-93ab60d7d4ee" parent="deb53462-0982-4488-ba3b-bf199a67bd49" source="296d6adc-38c9-4489-a80b-13e0cb3e93af" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1" target="fdf1fe61-9e65-4626-a008-306cf842547b" value="My connection">
+                    <mxGeometry as="geometry" relative="1"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

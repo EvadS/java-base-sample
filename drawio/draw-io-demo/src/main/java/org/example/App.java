@@ -5,6 +5,7 @@ import org.apache.commons.codec.CharEncoding;
 import org.apache.commons.text.StringEscapeUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Entities;
+import org.jsoup.nodes.TextNode;
 import org.jsoup.parser.Parser;
 import org.jsoup.select.Elements;
 import org.nasdanika.drawio.*;
@@ -26,7 +27,7 @@ import java.util.Set;
  * //Build-Jdk: 11.0.15
  */
 public class App {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, TransformerException {
         App app = new App();
         ///  app.readDiagramAndRewrite();
         //app.testCreate();
@@ -53,24 +54,56 @@ public class App {
             inputStream.close();
         }
 
-        org.jsoup.nodes.Document newDocument = Jsoup.parse(fileText.replace("\\", ""), "", Parser.htmlParser());
+        String replacedTextBase = fileText.replace("\\", "");
+        String replacedText = StringEscapeUtils.unescapeHtml4(replacedTextBase);
+
+        int diagramStartPos = replacedText.indexOf("<diagram");
+        int diagramEndPos = replacedText.indexOf("</diagram>");
+        String diagramText = replacedText.substring(diagramStartPos, diagramEndPos + "</diagram>".length());
+
+        String diagramTextWithBaseTag = "<mxfile>" + diagramText + "</mxfile>";
+        System.out.println("----------------------------- >>");
+        System.out.println(diagramTextWithBaseTag);
+        System.out.println("----------------------------- <<");
+
+//        String resultBeforeHtml = replacedText.substring(0, diagramStartPos);
+//        String resultAfterHtml = replacedText.substring(str.length(), diagramEndPos+ "</diagram>".length() );
+//        String resultHtmlText = resultBeforeHtml+"1111"+ resultAfterHtml;
+
+
+        org.jsoup.nodes.Document newDocument = Jsoup.parse(replacedText, "", Parser.htmlParser());
         newDocument.outputSettings().escapeMode(Entities.EscapeMode.base);
         newDocument.outputSettings().charset(CharEncoding.UTF_8);
 
-        Elements select = newDocument.select("div.mxgraph");
-        String attr = select.get(0).attr("data-mxgraph");
+        Elements businessSchemaElement = newDocument.select("div.business_schema");
+        Elements selectmxgraph = newDocument.select("div.mxgraph");
+        String attr = selectmxgraph.toString();
 
-
-        int diagram = attr.indexOf("<diagram");
+        // вырезаем диаграмму
+        int diagram2 = attr.indexOf("<diagram");
         int diagramEnd = attr.indexOf("</diagram>");
 
-        String substring2 = attr.substring(diagram, diagramEnd + "</diagram>".length());
-        String str = "<mxfile>" + substring2 + "</mxfile>";
-        readFromHtml(str);
+        String substring2 = attr.substring(diagram2, diagramEnd + "</diagram>".length());
+        String str22 = "<mxfile>" + substring2 + "</mxfile>";
+
+        System.out.println("----------------------------- >>");
+        System.out.println(str22);
+        System.out.println("----------------------------- <<");
+
+        Document document = readFromHtml(str22);
+        //TODO: for debug
+        //writeUsingOutputStream(save2, "compressed.drawio");
+
+        //<div class="mxgraph" style="max-width:100%;border:1px solid transparent;
+        String documentStr = document.toHtml(true, null);
+        businessSchemaElement.append(documentStr);
+
+        System.out.println(newDocument.toString());
+
     }
 
 
-    public static void readFromHtml(String htmlData)  {
+    public static Document readFromHtml(String htmlData)  {
         try {
             Document document = Document.load(htmlData, null);
             List<Page> pages = document.getPages();
@@ -97,13 +130,12 @@ public class App {
                 }
             }
 
-            // сохранить роз-архивируванную
-            String save2 = document.save(false);
-            writeUsingOutputStream(save2, "real_diagram.drawio");
+            return  document;
+
 
         } catch (IOException e) {
             throw new RuntimeException(e);
-        } catch (ParserConfigurationException | TransformerException e) {
+        } catch (ParserConfigurationException e) {
             throw new RuntimeException(e);
         } catch (SAXException e) {
             throw new RuntimeException(e);

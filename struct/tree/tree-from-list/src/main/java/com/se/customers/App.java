@@ -31,7 +31,7 @@ public class App {
         Customers customerChild1 = new Customers(2, "Hel-Child1", 1);
         Customers customerChild2 = new Customers(5, "Hel-Child2", 1);
         Customers customerInnerChild1 = new Customers(3, "Hel-InnerChild1", 2);
-        Customers customerInnerChild2 = new Customers(4, "Hel-InnerChild2", 2);
+        Customers customerInnerChild2 = new Customers(6, "Hel-InnerChild2", 0);
 
         List<Customers> customers = new ArrayList();
         customers.add(customerInnerChild1);

@@ -49,9 +49,5 @@ public class EscapeBase {
         String res = text.replaceAll("/", "B"); // Одиночный обратный слеш '\'
         String res2 = text.replaceAll(">", "A");
         String res3 = text.replaceAll("/>", "C");
-
-        int a =10;
-
-
     }
 }

@@ -23,9 +23,7 @@ public class QueryResultFormatter {
 
     public static void main(String[] args) throws IOException {
         List<Map<String, Object>> maps = FileUtils.readListMap("f100_records.json");
-
         List<Map<String, Object>> childs = new QueryResultFormatter().getChilds(maps, "", 3);
-
     }
 
     // TODO: WORKING HERE
@@ -42,9 +40,19 @@ public class QueryResultFormatter {
             String id = String.valueOf(record.get(strIDFieldName));
             String[] split = id.split("\\.");
 
-            for (int i = 0; i < split.length; i++) {
-
+            Map<String, Object> parentCurr = root;
+            String parentId = "";
+            for (int i = 0; i < split.length - 1; i++) {
+                //search parent
+                parentId = split[i];
+                // TODO: проверить что для єтого есть родитель
+                parentCurr = (Map<String, Object>)root.get(parentId);
             }
+
+               // putt
+            parentCurr.put(...);// просто нашли, проверка дочерняя секкция
+
+
         }
 
         // TODO: stub

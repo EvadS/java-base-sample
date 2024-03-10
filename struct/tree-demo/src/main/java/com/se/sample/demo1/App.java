@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class App {
 
 
-    private static List<TreeNodeHierachy1> overAllNodeList;
+    private static List<TreeNodeHierarchy> overAllNodeList;
 
     public static void main(String[] args) {
 
@@ -24,7 +24,7 @@ public class App {
                 "032-0001.0022.0007",
                 "032-0001.0022.0008");
 
-        List<TreeNodeHierachy1> overAllNodeList =  AddNodes(test);
+        List<TreeNodeHierarchy> overAllNodeList =  AddNodes(test);
 
 
 
@@ -32,19 +32,19 @@ public class App {
         System.out.println("Hello World!");
     }
 
-    private static List<TreeNodeHierachy1> AddNodes(Iterable<String> data) {
+    private static List<TreeNodeHierarchy> AddNodes(Iterable<String> data) {
         overAllNodeList = new ArrayList<>();
 
         for (String item : data) {
-            List<TreeNodeHierachy1> nodeList = new ArrayList<>();
+            List<TreeNodeHierarchy> nodeList = new ArrayList<>();
             String[] split = item.split("\\.");
             for (int i = 0; i < split.length; i++) {
 
                 UUID guid = UUID.randomUUID();
                 int finalI = i;
 
-                TreeNodeHierachy1 parent = null;
-                Optional<TreeNodeHierachy1> parentOpt = i == 0 ? null :
+                TreeNodeHierarchy parent = null;
+                Optional<TreeNodeHierarchy> parentOpt = i == 0 ? null :
                         nodeList.stream().filter(x -> x.Level == finalI - 1)
                                 .findFirst();
 
@@ -53,22 +53,22 @@ public class App {
                 }
 
                 // корень
-                TreeNodeHierachy1 root = null;
-                Optional<TreeNodeHierachy1> rootOpt = i == 0 ? null :
+                TreeNodeHierarchy root = null;
+                Optional<TreeNodeHierarchy> rootOpt = i == 0 ? null :
                         nodeList.stream().filter(n -> n.Level == 0).findFirst();
 
                 if(rootOpt!=null &&  rootOpt.isPresent()){
                     root = rootOpt.get();
                 }
 
-                TreeNode1 treeNode1 = new TreeNode1(split[i], guid);
+                TreeNode treeNode = new TreeNode(split[i], guid);
 
-                TreeNodeHierachy1 treeNodeHierachy = new TreeNodeHierachy1(i,
-                        treeNode1, guid,
+                TreeNodeHierarchy treeNodeHierarchy = new TreeNodeHierarchy(i,
+                        treeNode, guid,
                         parent != null ? parent.Id : new UUID(0, 0),
                         root != null ? root.RootText : split[i]);
 
-                nodeList.add(treeNodeHierachy);
+                nodeList.add(treeNodeHierarchy);
             }// for
 
             if (!overAllNodeList.stream().findAny().isPresent()) {
@@ -78,10 +78,10 @@ public class App {
                 nodeList = nodeList.stream().sorted(Comparator.comparingInt(o -> o.Level)).collect(Collectors.toList());
                 for (int i = 0; i < nodeList.size(); i++) {
 
-                    List<TreeNodeHierachy1> finalNodeList = nodeList;
+                    List<TreeNodeHierarchy> finalNodeList = nodeList;
                     int finalI = i;
 
-                    Optional<TreeNodeHierachy1> first = overAllNodeList.stream().filter(
+                    Optional<TreeNodeHierarchy> first = overAllNodeList.stream().filter(
                             n -> n.Node.getText().equals(finalNodeList.get(finalI).Node.getText())
                                     && n.Level == finalNodeList.get(finalI).Level
                                     && n.RootText.equals(finalNodeList.get(finalI).RootText)).findFirst();

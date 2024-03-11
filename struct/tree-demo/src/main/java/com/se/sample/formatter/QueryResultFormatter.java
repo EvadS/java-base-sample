@@ -1,5 +1,7 @@
 package com.se.sample.formatter;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.se.sample.utils.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,23 +26,13 @@ public class QueryResultFormatter {
 
         List<Map<String, Object>> childs = new QueryResultFormatter().getChilds(maps, "", 3);
 
+        logger.info("Grouped result: {}", new ObjectMapper().writeValueAsString(childs));
     }
 
-    private static List<Map<String, Object>> queryForList(String s) {
-        final List<Map<String, Object>> result = new ArrayList<>();
 
-        for (int i = 0; i < 10; i++) {
-            final Map<String, Object> map = new HashMap<>();
-            map.put("key", "key" + i);
-            map.put("value", "value" + i);
-            result.add(map);
-        }
-
-        return result;
-    }
 
     // TODO: WORKING HERE
-    public List<Map<String, Object>> getChilds(List<Map<String, Object>> aAllRecords, final String strParentID, final int nLevelCount) {
+    public List<Map<String, Object>> getChilds(List<Map<String, Object>> aAllRecords, final String strParentID, final int nLevelCount) throws JsonProcessingException {
        // если ничего не нашли на предыдущем шаге
        if (nLevelCount <= 0)
             return null;
@@ -91,6 +83,7 @@ public class QueryResultFormatter {
         }
 
         // приводим в нужный результат
+
 
         Iterator<Object> iterator = root.values().iterator();
 

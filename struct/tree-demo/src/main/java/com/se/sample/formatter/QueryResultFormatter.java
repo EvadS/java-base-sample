@@ -16,8 +16,6 @@ import static java.util.stream.Collectors.toList;
 
 public class QueryResultFormatter {
 
-  // JsonObject employee = new JsonObject();
-
     /**
      * Имя поляидинтификатора записи
      */
@@ -32,78 +30,69 @@ public class QueryResultFormatter {
         List<Map<String, Object>> childs = new QueryResultFormatter().getChilds(maps, "", 4);
         logger.info("Grouped result: {}", new ObjectMapper().writeValueAsString(childs));
 
+        logger.info("-------------------------------------");
         List<Map<String, Object>> childs2 = new QueryResultFormatter().getChilds2(maps, "", 3);
-
+        logger.info("Grouped result on stream api: {}", new ObjectMapper().writeValueAsString(childs2));
     }
 
-    public List<Map<String, Object>> getChilds2(List<Map<String, Object>> aAllRecords, final String strParentID, final int nLevelCount) throws JsonProcessingException {
-        final List<Map<String, Object>> oResult = new LinkedList<Map<String, Object>>();
+
+    public List<Map<String, Object>> getChilds2(List<Map<String, Object>> aAllRecords, final String strParentID, final int nLevelCount)  {
+        List<Map<String, Object>> oResult = new LinkedList<>();
 
         // если ничего не нашли на предыдущем шаге
         if (nLevelCount <= 0)
             return oResult;
 
-
-        List<AbstractMap.SimpleEntry> collect = aAllRecords.stream()
-                .map(p -> new AbstractMap.SimpleEntry(p.get(strIDFieldName),
-                        p.get(strIDFieldName).toString().split("\\.").length - 1))
-                .collect(toList());
-
-
-        List<MyStruct> levels = aAllRecords.stream().map(i ->
-                new MyStruct(
-                i.get(strIDFieldName).toString(),
-                i.get(strIDFieldName).toString().split("\\.").length - 1,
+        List<GrouppedStructure> levels = aAllRecords.stream().map(i ->
+                new GrouppedStructure(
+                        i.get(strIDFieldName).toString(),
+                        i.get(strIDFieldName).toString().split("\\.").length - 1,
                         i.get("Decode").toString(),
-                        Integer.valueOf( i.get("Count").toString()),
+                        Integer.valueOf(i.get("Count").toString()),
                         i.get("dict_typed_facet_decode").toString())).filter(i -> i.level < nLevelCount)
                 .sorted((o1, o2) -> o2.level - o1.level)
                 .collect(Collectors.toList());
 
-        for (MyStruct currentKey : levels) {
-
-            String s = currentKey.typed_facet.lastIndexOf(".") < 0 ?
+        for (GrouppedStructure currentKey : levels) {
+            String parentLevel = currentKey.typed_facet.lastIndexOf(".") < 0 ?
                     currentKey.typed_facet :
+                    //от текущего ключа отрезаем последний блок
                     currentKey.typed_facet.substring(0, currentKey.typed_facet.lastIndexOf("."));
 
+            // find parent for element
             levels.stream().filter(
-                    x -> x.typed_facet.equals(s)
-                            && x.level == currentKey.level - 1
-            ).findFirst().ifPresent(i -> i.child.add(currentKey));
+                    x -> x.typed_facet.equals(parentLevel)
+                            && x.level == currentKey.level - 1)
+                    .findFirst()
+                    .ifPresent(i -> i.child.add(currentKey));
         }
 
-        Map<String, List<MyStruct>> groups = levels.stream().filter(i -> i.level == 0)
+        Map<String, List<GrouppedStructure>> groups = levels.stream().filter(i -> i.level == 0)
                 .collect(groupingBy(x -> x.typed_facet));
 
+        groups.forEach((key, value) -> System.out.println("Key : " + key + " Value : " + value));
 
-        List<StructuredResponse> collect1 = levels.stream()
-                .map(s -> new StructuredResponse(s.typed_facet, s.Decode, s.Count, s.dict_typed_facet_decode))
+        oResult = groups.entrySet().stream()
+                .filter(Objects::nonNull)
+                .map(this::buildMapEntry)
                 .collect(toList());
-
-
-
-        // TODO: move to stream
-        for (Map.Entry<String, List<MyStruct>> entries : groups.entrySet()) {
-
-            Map<String, Object> aa = new HashMap<>();
-            aa.put(entries.getKey(), entries.getValue());
-            oResult.add(aa);
-        }
-
-
-
 
         return oResult;
     }
 
+    private Map<String, Object> buildMapEntry(Map.Entry<String, List<GrouppedStructure>> elt) {
+         return Collections.singletonMap(elt.getKey(),  elt.getValue());
+    }
+
+
     // TODO: WORKING HERE
-    public List<Map<String, Object>> getChilds(List<Map<String, Object>> aAllRecords, final String strParentID, final int nLevelCount) throws JsonProcessingException {
+    public List<Map<String, Object>> getChilds(List<Map<String, Object>> aAllRecords, final String strParentID, final int nLevelCount)   {
         // если ничего не нашли на предыдущем шаге
         if (nLevelCount <= 0)
             return null;
 
         // результат
-        final List<Map<String, Object>> oResult = new LinkedList<Map<String, Object>>();
+        final List<Map<String, Object>> oResult = new LinkedList<>();
         Map<String, Object> root = new HashMap<>();
 
         // вспомагательная структура - ускоряем поиск родительских обьектов
@@ -131,16 +120,14 @@ public class QueryResultFormatter {
 
             // ищем родетеля для текущего
             for (int i = 0; i < split.length - 1; i++) {
-                parentId = i == 0 ? split[i] : (parentId += "." + split[i]);
+                parentId = i == 0 ? split[i] : parentId + ("." + split[i]);
 
                 // TODO: проверить что для этого есть родитель
                 currentParent = getParentElementByPArentId(map, parentId);
             }
 
             if (!id.equals(parentId)) {
-                if (currentParent.get(CHILDS_KEY) == null) {
-                    currentParent.put(CHILDS_KEY, new HashMap<String, Object>());
-                }
+                currentParent.computeIfAbsent(CHILDS_KEY, k -> new HashMap<String, Object>());
                 ((Map<String, Object>) currentParent.get(CHILDS_KEY)).put(id, item);
             } else {
                 currentParent.put(id, item);
@@ -148,12 +135,8 @@ public class QueryResultFormatter {
         }
 
         // приводим в нужный результат
-
-
-        Iterator<Object> iterator = root.values().iterator();
-
-        while (iterator.hasNext()) {
-            Map<String, Object> next = (Map<String, Object>) iterator.next();
+        for (Object o : root.values()) {
+            Map<String, Object> next = (Map<String, Object>) o;
             oResult.add(next);
         }
 
@@ -189,97 +172,40 @@ public class QueryResultFormatter {
 //            return child1;
 //        }
 
-        Map<String, Object> stringObjectMap = map.get(parentId);
-        return stringObjectMap;
+        return map.get(parentId);
     }
 
-    static class MyStruct implements Comparable<MyStruct> {
+    static class GrouppedStructure //implements Comparable<GrouppedStructure>
+    {
 
         public String typed_facet;
-
-        public Integer level;
-        public Integer parentLevel;
-
-
         public String Decode;
         public Integer Count;
-        public  String dict_typed_facet_decode;
+        public String dict_typed_facet_decode;
 
+        public Integer level;
+        public List<GrouppedStructure> child = new ArrayList<>();
 
-        public List<MyStruct> child = new ArrayList<>();
-
-        public MyStruct(String typed_facet, int level,String Decode, Integer Count, String dict_typed_facet_decode) {
+        public GrouppedStructure(String typed_facet, int level, String Decode, Integer Count, String dict_typed_facet_decode) {
             this.typed_facet = typed_facet;
             this.level = level;
-            this.parentLevel = level - 1;
             this.Decode = Decode;
             this.Count = Count;
             this.dict_typed_facet_decode = dict_typed_facet_decode;
-        }
-
-
-        @Override
-        public int compareTo(MyStruct o) {
-            return o.level - this.level;
         }
 
         @Override
         public String toString() {
             return "MyStruct{" +
-                    "key='" + typed_facet + '\'' +
+                    "typed_facet='" + typed_facet + '\'' +
+                    ", Decode='" + Decode + '\'' +
+                    ", Count=" + Count +
+                    ", dict_typed_facet_decode='" + dict_typed_facet_decode + '\'' +
+                    ", level=" + level +
+                    ", child=" + child +
                     '}';
         }
     }
 
-    static class StructuredResponse {
-
-        public String typed_facet;
-        public String Decode;
-        public Integer Count;
-        public  String dict_typed_facet_decode;
-
-
-        public List<StructuredResponse> child = new ArrayList<>();
-
-        public StructuredResponse(String typed_facet,String Decode, Integer Count, String dict_typed_facet_decode) {
-            this.typed_facet = typed_facet;
-       
-            this.Decode = Decode;
-            this.Count = Count;
-            this.dict_typed_facet_decode = dict_typed_facet_decode;
-        }
-
-        public String getTyped_facet() {
-            return typed_facet;
-        }
-
-        public void setTyped_facet(String typed_facet) {
-            this.typed_facet = typed_facet;
-        }
-
-        public String getDecode() {
-            return Decode;
-        }
-
-        public void setDecode(String decode) {
-            Decode = decode;
-        }
-
-        public Integer getCount() {
-            return Count;
-        }
-
-        public void setCount(Integer count) {
-            Count = count;
-        }
-
-        public String getDict_typed_facet_decode() {
-            return dict_typed_facet_decode;
-        }
-
-        public void setDict_typed_facet_decode(String dict_typed_facet_decode) {
-            this.dict_typed_facet_decode = dict_typed_facet_decode;
-        }
-    }
 
 }

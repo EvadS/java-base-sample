@@ -128,7 +128,9 @@ public class QueryResultFormatter {
 
             if (!id.equals(parentId)) {
                 currentParent.computeIfAbsent(CHILDS_KEY, k -> new HashMap<String, Object>());
-                ((Map<String, Object>) currentParent.get(CHILDS_KEY)).put(id, item);
+                if(currentParent.get(CHILDS_KEY) instanceof Map) {
+                    ((Map<String, Object>) currentParent.get(CHILDS_KEY)).put(id, item);
+                }
             } else {
                 currentParent.put(id, item);
             }

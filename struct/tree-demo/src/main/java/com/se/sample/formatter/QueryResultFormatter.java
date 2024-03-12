@@ -85,7 +85,7 @@ public class QueryResultFormatter {
     }
 
 
-    // TODO: WORKING HERE
+    @SuppressWarnings (value="unchecked")
     public List<Map<String, Object>> getChilds(List<Map<String, Object>> aAllRecords, final String strParentID, final int nLevelCount)   {
         // если ничего не нашли на предыдущем шаге
         if (nLevelCount <= 0)
@@ -128,9 +128,7 @@ public class QueryResultFormatter {
 
             if (!id.equals(parentId)) {
                 currentParent.computeIfAbsent(CHILDS_KEY, k -> new HashMap<String, Object>());
-                if(currentParent.get(CHILDS_KEY) instanceof Map) {
-                    ((Map<String, Object>) currentParent.get(CHILDS_KEY)).put(id, item);
-                }
+                ((Map<String, Object>) currentParent.get(CHILDS_KEY)).put(id, item);
             } else {
                 currentParent.put(id, item);
             }

@@ -1,6 +1,5 @@
 package com.se.sample.formatter;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.se.sample.utils.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -43,8 +42,8 @@ public class QueryResultFormatter {
         if (nLevelCount <= 0)
             return oResult;
 
-        List<GrouppedStructure> levels = aAllRecords.stream().map(i ->
-                new GrouppedStructure(
+        List<GroupedStructure> levels = aAllRecords.stream().map(i ->
+                new GroupedStructure(
                         i.get(strIDFieldName).toString(),
                         i.get(strIDFieldName).toString().split("\\.").length - 1,
                         i.get("Decode").toString(),
@@ -53,7 +52,7 @@ public class QueryResultFormatter {
                 .sorted((o1, o2) -> o2.level - o1.level)
                 .collect(Collectors.toList());
 
-        for (GrouppedStructure currentKey : levels) {
+        for (GroupedStructure currentKey : levels) {
             String parentLevel = currentKey.typed_facet.lastIndexOf(".") < 0 ?
                     currentKey.typed_facet :
                     //от текущего ключа отрезаем последний блок
@@ -67,7 +66,7 @@ public class QueryResultFormatter {
                     .ifPresent(i -> i.child.add(currentKey));
         }
 
-        Map<String, List<GrouppedStructure>> groups = levels.stream().filter(i -> i.level == 0)
+        Map<String, List<GroupedStructure>> groups = levels.stream().filter(i -> i.level == 0)
                 .collect(groupingBy(x -> x.typed_facet));
 
         groups.forEach((key, value) -> System.out.println("Key : " + key + " Value : " + value));
@@ -80,7 +79,7 @@ public class QueryResultFormatter {
         return oResult;
     }
 
-    private Map<String, Object> buildMapEntry(Map.Entry<String, List<GrouppedStructure>> elt) {
+    private Map<String, Object> buildMapEntry(Map.Entry<String, List<GroupedStructure>> elt) {
          return Collections.singletonMap(elt.getKey(),  elt.getValue());
     }
 
@@ -175,7 +174,7 @@ public class QueryResultFormatter {
         return map.get(parentId);
     }
 
-    static class GrouppedStructure //implements Comparable<GrouppedStructure>
+    static class GroupedStructure
     {
 
         public String typed_facet;
@@ -184,9 +183,9 @@ public class QueryResultFormatter {
         public String dict_typed_facet_decode;
 
         public Integer level;
-        public List<GrouppedStructure> child = new ArrayList<>();
+        public List<GroupedStructure> child = new ArrayList<>();
 
-        public GrouppedStructure(String typed_facet, int level, String Decode, Integer Count, String dict_typed_facet_decode) {
+        public GroupedStructure(String typed_facet, int level, String Decode, Integer Count, String dict_typed_facet_decode) {
             this.typed_facet = typed_facet;
             this.level = level;
             this.Decode = Decode;

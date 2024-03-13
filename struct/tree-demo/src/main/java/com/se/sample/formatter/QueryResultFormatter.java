@@ -125,9 +125,13 @@ public class QueryResultFormatter {
                 currentParent = getParentElementByPArentId(map, parentId);
             }
 
+            //TODO: SkiEA refactored
             if (!id.equals(parentId)) {
-                currentParent.computeIfAbsent(CHILDS_KEY, k -> new HashMap<String, Object>());
-                ((Map<String, Object>) currentParent.get(CHILDS_KEY)).put(id, item);
+                currentParent.computeIfAbsent(CHILDS_KEY, k -> new LinkedList<String>());
+                LinkedList oo = (LinkedList) currentParent.get(CHILDS_KEY);
+                oo.add(item);
+                currentParent.put(CHILDS_KEY, oo);
+
             } else {
                 currentParent.put(id, item);
             }

@@ -1,11 +1,8 @@
 package com.se.sample.formatter;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.se.sample.utils.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
 import java.util.*;
 
 
@@ -26,7 +23,7 @@ public class QueryResultFormatterExtTestSortName {
     public List<Map<String, Object>> getChilds(List<Map<String, Object>> aAllRecords, final String strParentID, final int nLevelCount) {
         // если ничего не нашли на предыдущем шаге
         if (nLevelCount <= 0) {
-            logger.debug("incorrect input level restriction : [" + nLevelCount + "]" );
+            logger.debug("incorrect input level restriction : [" + nLevelCount + "]");
             return null;
         }
 
@@ -46,7 +43,7 @@ public class QueryResultFormatterExtTestSortName {
         logger.debug("sub map built in sec:" + buildSubstrDuration / 1000);
 
 
-        logger.debug("Count: [" + aAllRecords + "]" );
+        logger.debug("Count: [" + aAllRecords + "]");
         int rowNum = 0;
         // перебираем все записи
         for (Map<String, Object> item : aAllRecords) {
@@ -63,7 +60,7 @@ public class QueryResultFormatterExtTestSortName {
             Map<String, Object> currentParent = root;
             String parentId = id;
 
-            if(split.length > 1){
+            if (split.length > 1) {
                 // обрезаем часть чтобы получить идентификатор родильского
                 parentId = id.substring(0, id.lastIndexOf("."));
                 currentParent = map.get(parentId);
@@ -92,7 +89,7 @@ public class QueryResultFormatterExtTestSortName {
             Map<String, Object> next = (Map<String, Object>) o;
 
             // пробуем отсортировать первій уровень
-            //  Map<String, Object> maaap = recursiveListSort(next);
+           recursiveListSort(next);
             // next.put(CHILDS_KEY,linkedList);
 
             oResult.add(next);
@@ -102,12 +99,33 @@ public class QueryResultFormatterExtTestSortName {
     }
 
 
+    private void recursiveListSort(Map<String, Object> map) {
 
-    private Map<String, Object>  recursiveListSort( Map<String, Object> map) {
+        List childs = (List) map.get("childs");
 
-        // не нравиться рекурсия делем построчно
+        if (childs != null && childs.size() > 0) {
+            for (int i = 0;  i < childs.size(); i++) {
+                HashMap<String, Object> childMap = (HashMap<String, Object>) childs.get(i);
 
-        //  уровень 1
-        return map;
+                // current has childs
+                if (childMap.get("childs") != null) {
+                     recursiveListSort(childMap);
+                }
+
+                Collections.sort(childs, new Comparator<Map<String, Object>>() {
+                    @Override
+                    public int compare(Map<String, Object> o1, Map<String, Object> o2) {
+                        return o2.get(strIDFieldName).toString().compareTo(o1.get(strIDFieldName).toString());
+                    }
+                });
+            }
+        }
+
+        Collections.sort(childs, new Comparator<Map<String, Object>>() {
+            @Override
+            public int compare(Map<String, Object> o1, Map<String, Object> o2) {
+                return o2.get(strIDFieldName).toString().compareTo(o1.get(strIDFieldName).toString());
+            }
+        });
     }
 }

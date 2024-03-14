@@ -1,5 +1,6 @@
 package com.se.sample.formatter;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.se.sample.utils.FileUtils;
 import org.junit.Assert;
 import org.junit.Test;
@@ -30,6 +31,18 @@ public class QueryResultFormatterExtTestSortNameTest {
 
         // количество дочерних для второго уровня
         Assert.assertEquals(3, ((List)((HashMap)((List)root.get(0).get("childs")).get(0)).get("childs")).size());
+
+        int a =0;
+    }
+
+    @Test
+    public void formatter_should_work_correct2() throws IOException {
+        List<Map<String, Object>> maps = FileUtils.readListMapFromDocumentSubFolder("f100_records.json");
+
+        List<Map<String, Object>> root = formatter.getChilds(maps, "", 5);
+
+      String rootJson=  new ObjectMapper().writeValueAsString(root);
+
 
         int a =0;
     }

@@ -100,8 +100,19 @@
   {"typed_facet":"032-0000.0000.0004.0018","Decode":"07.02.2012 N 23","Count":55,"dict_typed_facet_decode":"07.02.2012 N 23","Name":"032-0000.0000.0004.0018"},
   {"typed_facet":"032-0000.0000.0004.0019","Decode":"28.02.2012 N 38","Count":22,"dict_typed_facet_decode":"28.02.2012 N 38","Name":"032-0000.0000.0004.0019"},
   {"typed_facet":"032-0001","Decode":"Голос України","Count":123505,"dict_typed_facet_decode":"Голос України","Name":"032-0000"},
-  {"typed_facet":"032-0001.0000","Decode":"2012","Count":7446,"dict_typed_facet_decode":"2012","Name":"032-0000.0000"},
-  {"typed_facet":"032-0001.0000.0000","Decode":"05","Count":640,"dict_typed_facet_decode":"05","Name":"032-0000.0000.0000"},
+
+  {"typed_facet":"032-0001.0000","Decode":"Голос України","Count":505,"dict_typed_facet_decode":"Голос України","Name":"032-0000"},
+  {"typed_facet":"032-0001.0011","Decode":"2012","Count":76,"dict_typed_facet_decode":"2012","Name":"032-0000.00011"},
+  {"typed_facet":"032-0001.0012","Decode":"2012","Count":7546,"dict_typed_facet_decode":"2012","Name":"032-0000.00012"},
+
+
+  {"typed_facet":"032-0001.0013","Decode":"2012","Count":24,"dict_typed_facet_decode":"2012","Name":"032-0000.00013"},
+  {"typed_facet":"032-0001.0014","Decode":"2012","Count":436,"dict_typed_facet_decode":"2012","Name":"032-0000.00014"},
+
+  {"typed_facet":"032-0001.0000.0000","Decode":"05","Count":8,"dict_typed_facet_decode":"05","Name":"032-0000.0000.0000"},
+  {"typed_facet":"032-0001.0000.0001","Decode":"05","Count":4,"dict_typed_facet_decode":"05","Name":"032-0000.0000.0000"},
+  {"typed_facet":"032-0001.0000.0002","Decode":"05","Count":40,"dict_typed_facet_decode":"05","Name":"032-0000.0000.0000"},
+
   {"typed_facet":"032-0001.0000.0000.0000","Decode":"17.05.2012 N 88","Count":40,"dict_typed_facet_decode":"17.05.2012 N 88","Name":"032-0000.0000.0000.0000"},
   {"typed_facet":"032-0001.0000.0000.0001","Decode":"26.05.2012 N 96","Count":24,"dict_typed_facet_decode":"26.05.2012 N 96","Name":"032-0000.0000.0000.0001"},
   {"typed_facet":"032-0001.0000.0000.0002","Decode":"05.05.2012 N 82","Count":51,"dict_typed_facet_decode":"05.05.2012 N 82","Name":"032-0000.0000.0000.0002"},

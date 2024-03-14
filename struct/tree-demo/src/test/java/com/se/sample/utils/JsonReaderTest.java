@@ -13,7 +13,7 @@ public class JsonReaderTest {
     @Test
     public void process_quotation_base_should_work_correct() throws IOException {
 
-        List<Map<String, Object>> maps = FileUtils.readListMap("f100_records.json");
+        List<Map<String, Object>> maps = FileUtils.readListMapFromDocumentSubFolder("f100_records.json");
 
         Assert.assertNotNull(maps);
     }

@@ -1,0 +1,36 @@
+[
+  {"typed_facet":"032-0000","Decode":"Голос України","Count":123505,"dict_typed_facet_decode":"Голос України","Name":"032-0000"},
+
+  {"typed_facet":"032-0000.0001","Decode":"level2","Count":5,"dict_typed_facet_decode":"2012","Name":"032-0000.0000"},
+  {"typed_facet":"032-0000.0002","Decode":"level2","Count":8,"dict_typed_facet_decode":"2012","Name":"032-0000.0000"},
+
+  {"typed_facet":"032-0000.0001.0001","Decode":"level3","Count":4,"dict_typed_facet_decode":"2012","Name":"4"},
+  {"typed_facet":"032-0000.0001.0002","Decode":"level3","Count":9,"dict_typed_facet_decode":"2012","Name":"2"},
+  {"typed_facet":"032-0000.0001.0003","Decode":"level3","Count":2,"dict_typed_facet_decode":"2012","Name":"9"},
+
+  {"typed_facet":"032-0000.0002.0001","Decode":"level3","Count":4,"dict_typed_facet_decode":"2012","Name":"4"},
+  {"typed_facet":"032-0000.0002.0002","Decode":"level3","Count":9,"dict_typed_facet_decode":"2012","Name":"2"},
+  {"typed_facet":"032-0000.0002.0003","Decode":"level3","Count":2,"dict_typed_facet_decode":"2012","Name":"9"},
+
+  {"typed_facet":"032-0000.0001.0001.0001","Decode":"level4","Count":4,"dict_typed_facet_decode":"2012","Name":"4"},
+  {"typed_facet":"032-0000.0001.0001.0002","Decode":"level4","Count":9,"dict_typed_facet_decode":"2012","Name":"7"},
+  {"typed_facet":"032-0000.0001.0001.0003","Decode":"level4","Count":2,"dict_typed_facet_decode":"2012","Name":"3"},
+  {"typed_facet":"032-0000.0001.0001.0004","Decode":"level4","Count":3,"dict_typed_facet_decode":"2012","Name":"2"},
+
+  {"typed_facet":"032-0000.0001.0002.0001","Decode":"level4","Count":4,"dict_typed_facet_decode":"2012","Name":"4"},
+  {"typed_facet":"032-0000.0001.0002.0002","Decode":"level4","Count":9,"dict_typed_facet_decode":"2012","Name":"7"},
+  {"typed_facet":"032-0000.0001.0002.0003","Decode":"level4","Count":2,"dict_typed_facet_decode":"2012","Name":"3"},
+  {"typed_facet":"032-0000.0001.0002.0004","Decode":"level4","Count":3,"dict_typed_facet_decode":"2012","Name":"2"},
+
+  {"typed_facet":"032-0000.0001.0001.0001.0001","Decode":"level5_1","Count":4,"dict_typed_facet_decode":"2012","Name":"4"},
+  {"typed_facet":"032-0000.0001.0001.0001.0002","Decode":"level5_1","Count":9,"dict_typed_facet_decode":"2012","Name":"7"},
+  {"typed_facet":"032-0000.0001.0001.0001.0003","Decode":"level5_1","Count":2,"dict_typed_facet_decode":"2012","Name":"3"},
+  {"typed_facet":"032-0000.0001.0001.0001.0004","Decode":"level5_1","Count":10,"dict_typed_facet_decode":"2012","Name":"2"},
+  {"typed_facet":"032-0000.0001.0001.0001.0005","Decode":"level5_1","Count":3,"dict_typed_facet_decode":"2012","Name":"5"},
+
+  {"typed_facet":"032-0000.0001.0001.0002.0001","Decode":"level5_2","Count":4, "dict_typed_facet_decode":"2012","Name":"4"},
+  {"typed_facet":"032-0000.0001.0001.0002.0002","Decode":"level5_2","Count":9, "dict_typed_facet_decode":"2012","Name":"7"},
+  {"typed_facet":"032-0000.0001.0001.0002.0003","Decode":"level5_2","Count":2, "dict_typed_facet_decode":"2012","Name":"3"},
+  {"typed_facet":"032-0000.0001.0001.0002.0004","Decode":"level5_2","Count":10,"dict_typed_facet_decode":"2012","Name":"2"},
+  {"typed_facet":"032-0000.0001.0001.0002.0005","Decode":"level5_2","Count":3, "dict_typed_facet_decode":"2012","Name":"5"}
+]

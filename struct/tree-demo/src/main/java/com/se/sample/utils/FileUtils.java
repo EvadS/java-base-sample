@@ -40,10 +40,7 @@ public class FileUtils {
         return resultList;
     }
 
-
-
-
-    public static  List<Map<String, Object>> readListMap(String fileName) throws IOException {
+    public static  List<Map<String, Object>> readListMapFromDocumentSubFolder(String fileName) throws IOException {
 
         String fullFileName = AppConfig.DOCUMENT_FOLDER + File.separator + fileName;
 

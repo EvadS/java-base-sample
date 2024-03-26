@@ -1,4 +1,4 @@
-package com.se.sample;
+package com.se.demos;
 
 import static org.junit.Assert.assertTrue;
 

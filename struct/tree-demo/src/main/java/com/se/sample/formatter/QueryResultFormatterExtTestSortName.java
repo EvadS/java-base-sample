@@ -15,6 +15,7 @@ public class QueryResultFormatterExtTestSortName {
      * Имя поляидинтификатора записи
      */
     final static protected String strIDFieldName = "typed_facet";
+    protected final static String sortFieldName = "Decode";
     protected static final String CHILDS_KEY = "childs";
     private static final Logger logger = LogManager.getLogger(QueryResultFormatterExtTestSortName.class);
 
@@ -89,7 +90,7 @@ public class QueryResultFormatterExtTestSortName {
             Map<String, Object> next = (Map<String, Object>) o;
 
             // пробуем отсортировать первій уровень
-           recursiveListSort(next);
+           sortMapRecusive(next);
             // next.put(CHILDS_KEY,linkedList);
 
             oResult.add(next);
@@ -99,33 +100,20 @@ public class QueryResultFormatterExtTestSortName {
     }
 
 
-    private void recursiveListSort(Map<String, Object> map) {
-
+    private void sortMapRecusive(Map<String, Object> map) {
         List childs = (List) map.get("childs");
 
-        if (childs != null && childs.size() > 0) {
-            for (int i = 0;  i < childs.size(); i++) {
-                HashMap<String, Object> childMap = (HashMap<String, Object>) childs.get(i);
+        for (int i = 0; i < childs.size(); i++) {
+            HashMap<String, Object> childMap = (HashMap<String, Object>) childs.get(i);
 
-                // current has childs
-                if (childMap.get("childs") != null) {
-                     recursiveListSort(childMap);
-                }
-
-                Collections.sort(childs, new Comparator<Map<String, Object>>() {
-                    @Override
-                    public int compare(Map<String, Object> o1, Map<String, Object> o2) {
-                        return o2.get(strIDFieldName).toString().compareTo(o1.get(strIDFieldName).toString());
-                    }
-                });
+            // current has childs
+            if (childMap.get("childs") != null) {
+                sortMapRecusive(childMap);
             }
+
+            Collections.sort(childs, (Comparator<Map<String, Object>>) (o1, o2) -> o1.get(sortFieldName).toString().compareTo(o2.get(sortFieldName).toString()));
         }
 
-        Collections.sort(childs, new Comparator<Map<String, Object>>() {
-            @Override
-            public int compare(Map<String, Object> o1, Map<String, Object> o2) {
-                return o2.get(strIDFieldName).toString().compareTo(o1.get(strIDFieldName).toString());
-            }
-        });
+        Collections.sort(childs, (Comparator<Map<String, Object>>) (o1, o2) -> o1.get(sortFieldName).toString().compareTo(o2.get(sortFieldName).toString()));
     }
 }

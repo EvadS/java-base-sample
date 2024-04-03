@@ -1,4 +1,4 @@
-package com.se.func;
+package com.se.base.func;
 
 import java.util.Arrays;
 import java.util.List;

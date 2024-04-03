@@ -1,6 +1,6 @@
-package com.se.sample.functional;
+package com.se.base.sample.functional;
 
-import com.se.sample.interfaces.ExponentiationInterface;
+import com.se.base.sample.interfaces.ExponentiationInterface;
 
 import java.util.function.Function;
 

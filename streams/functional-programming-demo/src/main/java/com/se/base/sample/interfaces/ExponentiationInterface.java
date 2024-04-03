@@ -1,4 +1,4 @@
-package com.se.sample.interfaces;
+package com.se.base.sample.interfaces;
 
 @FunctionalInterface
 public interface ExponentiationInterface<T,R> {

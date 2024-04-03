@@ -1,4 +1,4 @@
-package com.se.sample.functional;
+package com.se.base.sample.functional;
 
 import java.util.function.Consumer;
 

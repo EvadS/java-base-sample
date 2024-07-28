@@ -16,11 +16,11 @@ public class FileDiff {
 
     public static void main(String[] args) throws IOException {
         // Read both files with line iterator.
-       // LineIterator file1 = FileUtils.lineIterator(new File("file-1.txt"), "utf-8");
-       // LineIterator file2 = FileUtils.lineIterator(new File("file-2.txt"), "utf-8");
+        LineIterator file1 = FileUtils.lineIterator(new File("file-1.txt"), "utf-8");
+        LineIterator file2 = FileUtils.lineIterator(new File("file-2.txt"), "utf-8");
 
-        LineIterator file1 = FileUtils.lineIterator(new File("KD0003_2021_07_15.txt"), "utf-8");
-        LineIterator file2 = FileUtils.lineIterator(new File("KD0003_2022_11_19.txt"), "utf-8");
+     //   LineIterator file1 = FileUtils.lineIterator(new File("KD0003_2021_07_15.txt"), "utf-8");
+     //   LineIterator file2 = FileUtils.lineIterator(new File("KD0003_2022_11_19.txt"), "utf-8");
 
         // Initialize visitor.
         FileCommandsVisitor fileCommandsVisitor = new FileCommandsVisitor();

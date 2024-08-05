@@ -42,35 +42,23 @@ public class TreeBuilder {
 
         int a =0;
 
-       String res = DocumentDiffResponse(root);
-      //  print(root, "", "/");
+       //String res = DocumentDiffResponse(root);
+        print(root, "", 0);
     }
 
-    public static String DocumentDiffResponse(MyTreeMap parent) {
-        StringBuilder builder = new StringBuilder();
 
-        for (Map.Entry<String, MyTreeMap> current : parent.entrySet()) {
-            String docStructDiffResult = BuildDocumentDiffResultRecursive(current, "");
-            builder.append(docStructDiffResult);
-        }
-        return builder.toString();
-    }
 
-    private static String BuildDocumentDiffResultRecursive(Map.Entry<String, MyTreeMap> current, String curr) {
-
-        if (current != null) {
-            int a =0;
-           // return current.getKey() + BuildDocumentDiffResultRecursive(current, times - 1);
-        }
-        return current.getKey();
-
-    }
-
-    static void print(MyTreeMap parent, String indentationStr, String indentationStrAddition) {
+    static void print(MyTreeMap parent, String indentationStr, int level) {
         for (Map.Entry<String, MyTreeMap> o : parent.entrySet()) {
-            System.out.println(indentationStr + o.getKey());
-            print(o.getValue(), indentationStr + indentationStrAddition, indentationStrAddition);
+
+            indentationStr = indentationStr + o.getKey();
+            System.out.println(indentationStr);
+            level ++;
+            print(o.getValue(), indentationStr + "/", level);
         }
+
+        level =0;
+        int a =0;
     }
 
     /**

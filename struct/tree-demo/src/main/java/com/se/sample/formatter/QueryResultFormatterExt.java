@@ -57,20 +57,12 @@ public class QueryResultFormatterExt {
         long buildSubstrDuration = System.currentTimeMillis() - startSubStructure;
         logger.debug("sub map built in sec:" + buildSubstrDuration / 1000);
 
-
-        logger.debug("Count: [" + aAllRecords + "]" );
-        int rowNum = 0;
-        // перебираем все записи
+ // перебираем все записи
         for (Map<String, Object> item : aAllRecords) {
 
             String id = String.valueOf(item.get(strIDFieldName));
             // получим все уровни
             String[] split = id.split("\\.");
-
-            if (split.length > nLevelCount) {
-                // превысили допустимое количество вложений (ограничение по уровням)
-                continue;
-            }
 
             Map<String, Object> currentParent = root;
             String parentId = id;
@@ -90,12 +82,6 @@ public class QueryResultFormatterExt {
             } else {
                 logger.debug("put parent item :" + id);
                 currentParent.put(id, item);
-            }
-
-            rowNum++;
-            int completedPercents = 100 * (rowNum / aAllRecords.size());
-            if (rowNum > 0 && (completedPercents % 100 == 10)) {
-                logger.info("progress: " + completedPercents);
             }
         }
 

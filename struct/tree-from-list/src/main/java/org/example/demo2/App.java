@@ -23,28 +23,32 @@ public class App {
         IntermediateNode root = new App().build(rows);
 
 
-        String str = print(root, "");
+        String str = print(root, "", "");
         int a = 0;
     }
 
-    private static String print(IntermediateNode root, String prev) {
+    private static String print(IntermediateNode root, String prev,  String full) {
         StringBuilder sb = new StringBuilder();
 
         for (Map.Entry<String, IntermediateNode> item : root.valueMap.entrySet()) {
-            String curr = "";
-            if(!prev.isEmpty()) {
-                curr = prev + "." + item.getKey();
-                curr = prev + "/" + curr;
+
+            if(!full.isEmpty()) {
+                prev = prev +"."+item.getKey() ; //323-200/323-200.010 -> 323-200.010
+                full = full + "/"+prev;
             }
             else{
-                curr = item.getKey();
+                full = item.getKey();
+                prev = full;
             }
-            sb.append(print(item.getValue(),curr));
-            System.out.println(curr);
+
+            sb.append(print(item.getValue(), prev, full));
+
+            System.out.println("=============================");
+            System.out.println(full);
             sb.append("|");
         }
 
-        return sb.append(prev).toString();
+        return sb.append(full).toString();
     }
 
     public IntermediateNode build(List<String> lines) {

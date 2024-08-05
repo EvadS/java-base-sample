@@ -43,21 +43,20 @@ public class TreeBuilder {
         int a =0;
 
        //String res = DocumentDiffResponse(root);
-        print(root, "", 0);
+        print(root, "");
     }
 
 
 
-    static void print(MyTreeMap parent, String indentationStr, int level) {
+    static void print(MyTreeMap parent, String indentationStr) {
         for (Map.Entry<String, MyTreeMap> o : parent.entrySet()) {
 
             indentationStr = indentationStr + o.getKey();
             System.out.println(indentationStr);
-            level ++;
-            print(o.getValue(), indentationStr + "/", level);
+
+            print(o.getValue(), indentationStr + "/");
         }
 
-        level =0;
         int a =0;
     }
 

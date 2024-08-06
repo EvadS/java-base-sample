@@ -9,17 +9,26 @@ public class App {
 
     public static void main(String[] args) {
 
+//        List<String> rows = Arrays.asList(
+//                "323-200",
+//                "323-200.010",
+//                "323-200.010.011",
+//                "323-200.010.012",
+//
+//                "323-200.020"
+////                "323-200.020.010",
+////                "323-200.020.030"
+//        );
+
         List<String> rows = Arrays.asList(
-                "323-200",
-                "323-200.010",
-                "323-200.010.011",
-                "323-200.010.012",
+                "a",
+                "a.b1",
+                "a.b1.c1",
+                "a.b1.c10",
 
-                "323-200.020"
-//                "323-200.020.010",
-//                "323-200.020.030"
+                "a.b2.c1",
+                "a.b2.c10"
         );
-
         IntermediateNode root = new App().build(rows);
 
 
@@ -27,28 +36,28 @@ public class App {
         int a = 0;
     }
 
-    private static String print(IntermediateNode root, String prev,  String full) {
+    private static String print(IntermediateNode root, String prev,  String curr) {
         StringBuilder sb = new StringBuilder();
-
+        System.out.println("prev:" + prev + " curr:" + curr);
         for (Map.Entry<String, IntermediateNode> item : root.valueMap.entrySet()) {
 
-            if(!full.isEmpty()) {
-                prev = prev +"."+item.getKey() ; //323-200/323-200.010 -> 323-200.010
-                full = full + "/"+prev;
+            if(!curr.isEmpty()) {
+                prev = curr;
+                curr = prev + "/" + item.getKey();
             }
             else{
-                full = item.getKey();
-                prev = full;
+                curr = item.getKey();
             }
 
-            sb.append(print(item.getValue(), prev, full));
-
-            System.out.println("=============================");
-            System.out.println(full);
+            String res = print(item.getValue(), prev, curr);
+            curr=prev;
+            sb.append(res);
             sb.append("|");
-        }
 
-        return sb.append(full).toString();
+
+        }
+        // что здесь ?
+        return sb.append(curr).toString();
     }
 
     public IntermediateNode build(List<String> lines) {

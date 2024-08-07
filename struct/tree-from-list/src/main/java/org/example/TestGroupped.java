@@ -8,14 +8,23 @@ public class TestGroupped {
 
     public static void main(String[] args) {
 
-        List<String> rows = new ArrayList<>();
-        rows.add("323-050");
-        rows.add("323-050.130");
-        rows.add("323-050.130.020");
+//        List<String> rows = new ArrayList<>();
+//        rows.add("323-050");
+//        rows.add("323-050.130");
+//        rows.add("323-050.130.020");
+//
+//        rows.add("323-060");
+//        rows.add("323-060.070");
+//        rows.add("323-060.070.170");
 
-        rows.add("323-060");
-        rows.add("323-060.070");
-        rows.add("323-060.070.170");
+        List<String> rows = Arrays.asList(
+        "323-060",
+                "323-060.040",
+                "323-060.040.030",
+
+                "323-060.088",
+                "323-060.088.020"
+        );
 
         String result = Arrays.stream("323-050,323-050.130,323-050.130.020".split(","))
                 //.filter(role -> role.contains("UC"))

@@ -40,10 +40,11 @@ public class TreeBuilder {
             }
         }
 
-        int a =0;
+
 
        //String res = DocumentDiffResponse(root);
         print(root, "");
+        int a =0;
     }
 
 

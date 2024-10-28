@@ -7,10 +7,7 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public interface BasicMapper {
     BasicMapper INSTANCE = Mappers.getMapper(BasicMapper.class);
-
     BasicUserDTO convert(BasicUser user);
-
-
     default PersonDTO convertCustom(BasicUser user) {
         return PersonDTO
                 .builder()

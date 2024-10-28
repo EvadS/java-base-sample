@@ -1,6 +1,5 @@
 package com.se.sample;
 
-
 import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;

@@ -1,1 +1,0 @@
-mvn archetype:generate -DarchetypeGroupid=org.openjdk.jmh -DarchetypeArtifactid=jmh-java-benchmark-archetype  -Dgroupid=com.example -Dartifactid=coll-test -Dversion=l.0

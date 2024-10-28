@@ -22,17 +22,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Hello world!
- * //Build-Jdk: 11.0.15
- */
+
 public class App {
     public static void main(String[] args) throws IOException, TransformerException {
         App app = new App();
         ///  app.readDiagramAndRewrite();
         //app.testCreate();
 
-
+        Runnable fg;
         String fileText;
         InputStream inputStream = null;
         BufferedReader bufferedReader = null;
@@ -91,6 +88,9 @@ public class App {
         System.out.println("----------------------------- <<");
 
         Document document = readFromHtml(str22);
+
+
+
         //TODO: for debug
         //writeUsingOutputStream(save2, "compressed.drawio");
 

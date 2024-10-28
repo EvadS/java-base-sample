@@ -9,6 +9,7 @@ public class App2 {
     public void demo (){
         Function<Integer, Integer> quadratic =
                 value -> value * value;
+
         Integer apply = quadratic.apply(2);
         System.out.println("apply: " +  apply);
 

@@ -27,3 +27,8 @@ FROM -> TO
 ```bash
     scp /Documents/keystore/server.cer root@172.17.0.2:/home/
 ```
+------------------------------------------------
+## Check JAR file structure
+```
+ jar -tf target/example.jar
+```

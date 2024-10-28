@@ -1,6 +1,5 @@
 package com.se.sample;
 
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -33,14 +32,11 @@ public class ResourceFolderFilesReaderAppTest
     };
 
 
-    // @DisplayName("Test loading a JSON file")
     @Test
     public void loadJSONTest() {
 
         String fileName = "json/file1.json";
-
         ClassLoader classLoader = getClass().getClassLoader();
-
         try (InputStream inputStream = classLoader.getResourceAsStream(fileName);
              InputStreamReader streamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
              BufferedReader reader = new BufferedReader(streamReader)) {
@@ -55,7 +51,6 @@ public class ResourceFolderFilesReaderAppTest
         }
     }
 
-   // @DisplayName("Test loading a properties file")
     @Test
     public  void loadPropTest() throws IOException, URISyntaxException {
 
@@ -68,7 +63,6 @@ public class ResourceFolderFilesReaderAppTest
             throw new IllegalArgumentException("file not found! " + fileName);
         }
 
-        //File file = new File(resource.getFile());
         File file = new File(resource.toURI());
 
         List<String> lines = Files.readAllLines(file.toPath(), StandardCharsets.UTF_8);

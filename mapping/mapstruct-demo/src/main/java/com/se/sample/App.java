@@ -14,7 +14,7 @@ public class App
                 .name("John Doe")
                 .build();
 
-        BasicUserDTO dto = BasicMapper.INSTANCE.convert(user);
+       // BasicUserDTO dto = BasicMapper.INSTANCE.convert(user);
         System.out.println( "Hello World!" );
     }
 }

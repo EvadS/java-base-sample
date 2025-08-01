@@ -11,8 +11,8 @@
 
 
     <!--- Document UA-->
-    <appender name="uaDocumentService" class="org.apache.log4j.RollingFileAppender">
-        <param name="file" value="/var/log/tomcat7/UaDocumentService.log"/>
+    <appender name="file" class="org.apache.log4j.RollingFileAppender">
+        <param name="file" value="/var/log/UaDocumentService.log"/>
         <param name="MaxFileSize" value="1000KB"/>
         <param name="MaxBackupIndex" value="5"/>
         <layout class="org.apache.log4j.PatternLayout">
@@ -22,7 +22,8 @@
 
     <logger name="org.example.App" additivity="false">
         <level value="INFO"/>
-        <appender-ref ref="uaDocumentService"/>
+        <appender-ref ref="file"/>
+        <appender-ref ref="CONSOLE"/>
     </logger>
 
     <root>

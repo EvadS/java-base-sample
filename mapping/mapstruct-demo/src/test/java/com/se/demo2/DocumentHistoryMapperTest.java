@@ -10,9 +10,8 @@ public class DocumentHistoryMapperTest {
     @Test
     public void test(){
 
-
         HistoryRequest historyRequest = HistoryRequest.builder()
-                .documentDate(System.currentTimeMillis())
+                .documentId("KD00003")
                 .build();
 
         DocumentHistory documentHistory = DocumentHistoryMapper.INSTANCE.toDocumentHistory(historyRequest);

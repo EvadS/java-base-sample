@@ -29,7 +29,7 @@
     <!--        <appender-ref ref="console"/>-->
     <!--    </logger>-->
 
-    <logger name="ua.lz.ep" >
+    <logger name="org.example" >
         <level value="debug"/>
         <appender-ref ref="console"/>
     </logger>

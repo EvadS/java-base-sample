@@ -16,3 +16,4 @@ to treat a Map object as a source of JSON properties
 
 ### @JsonIgnore
 filed is ignored while both writing and reading JSON.
+

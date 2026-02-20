@@ -1,0 +1,48 @@
+
+# Working with json in java
+
+JsonElement (JsonObject, JsonArray, JsonPrimitive, JsonNull)
+JsonArray
+
+JsonObject
+JsonNode
+JSONObject
+
+### JsonObject
+(com.google.gson package)
+ Represents a collection of key-value pairs ({})
+
+### JsonElement
+JsonElement in Java is an abstract class from the Gson library (com.google.gson)
+known subclasses are:
+* JsonObject: Represents a collection of key-value pairs (e.g., {"key": "value"}).
+* JsonArray: Represents an ordered list of values (e.g., ["value1", "value2"]).
+* JsonPrimitive: Represents a primitive JSON value, such as a string, number, or boolean (e.g., "hello", 123, true).
+* JsonNull: Represents a JSON null value (e.g., null).
+
+
+### JsonArray
+sequence of values, represented as a string wrapped in square brackets []
+```
+// Create a JSONArray
+JSONArray array = new JSONArray();
+array.put("Value 1");
+array.put("Value 2");
+
+// Parse a JSON string
+JSONArray parsedArray = new JSONArray("[\"Value 1\", \"Value 2\"]");
+
+```
+
+### JsonNode
+(fasterxml.jackson.databind package)
+
+Это основной класс в библиотеке Jackson, используемый для представления узла в древовидной модели JSON. Это мощный
+пособ анализа и чтения данных JSON, когда структура может быть неизвестна или требуются только определенные поля.
+
+Subtypes: Specific JSON types (like strings, numbers, booleans, arrays, and objects) are represented by subclasses,
+ such as  TextNode, IntNode, ArrayNode, and ObjectNode.
+
+
+### javax.json.JsonObject
+Jakarta EE (javax.json)

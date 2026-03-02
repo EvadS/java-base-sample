@@ -26,7 +26,7 @@ public class GroupByMapExample2 {
          grouppingDemo(data);
 
 
-        List<Map<String, ? extends Serializable>> list = Arrays.asList(
+        Arrays.asList(
                 Map.of("id", 5, "uid", 6, "name", "name"),
                 Map.of("id", 5, "uid", 7, "name", "name"),
                 Map.of("id", 6, "uid", 8, "name", "name"),

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@Deprecated
 public class GroupByMapExample {
     public static void main(String[] args) {
         // Sample data

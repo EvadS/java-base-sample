@@ -79,7 +79,7 @@ public class ApplicationDemo {
         return Collections.emptyList();
     }
 
-    public static List<ReferenceText> bindReferenceList(String fileName) throws JsonProcessingException {
+    public static List<ReferenceText> bindReferenceList(String fileName)   {
         List<ReferenceText> result = new ArrayList<>();
 
         try (InputStream is= ApplicationDemo.class.getResourceAsStream("/" + fileName)){
@@ -110,7 +110,7 @@ public class ApplicationDemo {
     }
 
 
-    public static List<ReferenceText> bindReferenceList2(String jsonString) throws JsonProcessingException {
+    public static List<ReferenceText> bindReferenceList2(String jsonString)   {
         List<ReferenceText> result = new ArrayList<>();
         // ----------------------------------------------------------------------------------------------
 

@@ -1,0 +1,9 @@
+
+
+
+   List<Pair<String, String>> artistAlbum = albums.stream()
+            .flatMap(album -> album.getArtists()
+                .stream()
+                .filter(artist -> upperCost > album.getAlbumCost())
+                .map(artist -> new ImmutablePair<String, String>(artist.getName(), album.getAlbumName())))
+            .collect(toList());
